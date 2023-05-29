@@ -1,0 +1,81 @@
+@use '../../styles/colors';
+
+.common {
+  transition: background-color .3s ease-in-out;
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  margin: 0;
+
+  &:focus-visible {
+    outline: colors.$accent solid 2px;
+  }
+
+  .spinner {
+    margin: 0 auto;
+  }
+}
+
+.size_s {
+  padding: .25rem;
+  font-size: .75rem;
+}
+.size_m {
+  padding: .5rem 1rem;
+  font-size: 1rem;
+}
+.size_l {
+  padding: 1rem;
+  font-size: 1.75rem;
+}
+
+.primary {
+  background: colors.$primary;
+  color: colors.$background;
+  &:not(.disabled):hover {
+    background: colors.$secondary;
+  }
+}
+
+.accent {
+  background: colors.$accent;
+  color: colors.$background;
+  &:not(.disabled):hover {
+    background: colors.$secondary;
+  }
+}
+
+
+.link {
+  padding: 0;
+  background: transparent;
+  &:not(.disabled):hover {
+    text-decoration: underline;
+  }
+}
+
+.link_light {
+  @extend .link;
+  color: colors.$background;
+}
+.link_dark {
+  @extend .link;
+  color: colors.$primary;
+}
+.link_accent {
+  @extend .link;
+  color: colors.$accent;
+}
+.transparent {
+  background: transparent;
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: .5;
+}
