@@ -1,0 +1,31 @@
+$breakpoints: (
+        "mobile": (
+                "min": 480px,
+                "max": 767px
+        ),
+        "tablet": (
+                "min": 768px,
+                "max": 1023px
+        ),
+        "desktop": (
+                "min": 1024px,
+        )
+);
+
+@mixin mediaQuery($platforms...) {
+  @each $platform in $platforms {
+    $dimensions: map-get($breakpoints, $platform);
+    $minWidth: map-get($dimensions, "min");
+    $maxWidth: map-get($dimensions, "max");
+
+    @if $platform == 'desktop' {
+      @media (min-width: $minWidth) {
+        @content;
+      }
+    } @else {
+      @media (min-width: $minWidth) and (max-width: $maxWidth) {
+        @content;
+      }
+    }
+  }
+}

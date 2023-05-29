@@ -1,0 +1,14 @@
+$current: 0.422rem;
+$ratio: 1.333;
+$endIndex: 9;
+$i: 0;
+
+@while $i < $endIndex {
+  .fs-#{$i} {
+    font-size: $current;
+  }
+  $current: $current * $ratio;
+  $i: $i + 1;
+}
+
+
