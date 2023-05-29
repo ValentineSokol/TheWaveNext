@@ -1,0 +1,39 @@
+@use '../../styles/colors';
+@use '../../styles/media';
+
+.modal {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  border: 2px solid colors.$primary;
+  border-radius: 6px;
+  z-index: 100;
+
+  &::backdrop {
+    background: colors.$accent;
+    opacity: 0.4;
+  }
+
+  @include media.mediaQuery('tablet') {
+    width: 80vw;
+    height: auto;
+  }
+  @include media.mediaQuery('desktop') {
+    max-width: 30vw;
+    height: auto;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 1%;
+  left: 0;
+  color: colors.$primary;
+  &:hover {
+    color: colors.$accent;
+  }
+}
