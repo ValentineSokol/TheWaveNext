@@ -1,0 +1,8 @@
+@use '../../styles/colors';
+
+.errorText {
+  color: colors.$danger;
+  padding-top: .2rem;
+  display: flex;
+  gap: .3rem;
+}
