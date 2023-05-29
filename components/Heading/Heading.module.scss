@@ -1,0 +1,9 @@
+@use '../../styles/colors';
+.heading {
+  color: colors.$primary;
+  text-align: center;
+}
+
+.icon {
+  margin-right: .5rem;
+}
