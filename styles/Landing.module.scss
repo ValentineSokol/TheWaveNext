@@ -1,0 +1,53 @@
+@use './colors';
+@use './spacing';
+@use './media';
+
+.hero {
+  padding: spacing.$m;
+  margin-bottom: spacing.$l;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: url("../assets/sea.webp") no-repeat center;
+  height: 60vh;
+
+  @include media.mediaQuery('desktop') {
+    gap: 1rem;
+  }
+}
+.bullets {
+  padding: spacing.$m;
+  margin-bottom: spacing.$l;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: spacing.$xl;
+
+  li {
+    max-width: 30%;
+  }
+  h3, p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  li:nth-child(even) {
+      h2 {
+        color: colors.$secondary;
+      }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bullets {
+    flex-direction: column;
+    align-items: baseline;
+    li {
+      max-width: 100%;
+    }
+  }
+}
