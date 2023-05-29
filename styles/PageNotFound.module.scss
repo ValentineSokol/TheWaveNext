@@ -1,0 +1,44 @@
+@use '../styles/colors';
+
+.main {
+  color: colors.$primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 3rem);
+  flex-direction: column;
+  background-image: linear-gradient(to bottom right, colors.$accent, colors.$secondary_b);
+}
+
+.container {
+  padding: 1rem;
+  overflow: hidden;
+  text-align: center;
+  width: 80%;
+  border-radius: 10px;
+  background: colors.$background;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.strandedImg {
+  max-width: 60%;
+  height: auto;
+}
+
+.lifebuoyImg {
+  max-width: 30%;
+  height: auto;
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+
+    .strandedImg {
+      max-width: 80%;
+    }
+  }
+
+}
