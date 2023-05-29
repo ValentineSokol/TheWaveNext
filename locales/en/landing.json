@@ -1,0 +1,21 @@
+{
+  "title": "Fanfic Wave: Welcome",
+  "description": "Fanfic Wave is a vibrant fanfiction platform that brings together the charm of a classic fanfiction archive with the interactivity of a modern social network. Discover a seamless reading, writing, and sharing experience as you immerse yourself in captivating stories from a diverse community of passionate writers and readers. Register now!",
+  "heading": "The Wave: Next-gen fanfiction social network",
+  "cta": "Register Now!",
+  "valueProposition": "What do we bring to the table?",
+  "cards": {
+    "offline": {
+      "heading": "Read Anywhere, Anytime",
+      "text": "Immerse yourself in captivating narratives anytime, anywhere. Enjoy uninterrupted reading in any situation."
+    },
+    "chat": {
+      "heading": "Chat in Real-Time",
+      "text": "Engage in vibrant conversations with fellow fans and share your love for fanfiction in our lively chat rooms."
+    },
+    "tts": {
+      "heading": "Listen to Stories with Natural Voices",
+      "text": "Experience the magic of storytelling in a whole new dimension. Our Text-to-Speech (TTS) feature brings stories to life with human-like voices."
+    }
+  }
+}
