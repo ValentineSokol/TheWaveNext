@@ -1,0 +1,65 @@
+@use '../../styles/colors';
+
+.normal {
+  box-sizing: border-box;
+  padding: 1.5rem 1.5rem .5rem 1.5rem;
+  font-size: 1rem;
+  caret-color: colors.$accent;
+  border: none;
+  border-radius: 5px;
+  outline: 1px colors.$accent solid;
+  &:focus {
+    outline: colors.$secondary 2px solid;
+  }
+  &_error, &_error:focus {
+    outline: 1px red solid;
+  }
+  .label {
+    margin-bottom: .5rem;
+  }
+
+}
+
+.filled {
+  transition: border-bottom-color .1s linear;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid darken(#F5F5F5, 50%);
+  padding: 1rem 1rem 0.5rem;
+  background: #F5F5F5;
+  border-radius: 5px 5px 0 0;
+
+  &:focus {
+    border-bottom-color: colors.$primary;
+    .label_filled {
+      color: colors.$primary;
+    }
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}
+.error {
+  margin-top: .5rem;
+}
+
+.size_s {
+  width: 10rem;
+  input {
+    padding: .5rem;
+  }
+}
+.size_m {
+  width: 15rem;
+  input {
+    padding: .5rem;
+  }
+}
+
+.size_l {
+  width: 20rem;
+  input {
+    padding: .5rem;
+  }
+}
