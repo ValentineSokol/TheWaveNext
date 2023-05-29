@@ -1,0 +1,14 @@
+{
+  "registerCTA": "<0><span>Don't have an account yet? <1>Register!</1></span></0>",
+  "loginCTA": "<0>Already have an account? <1>Log in!</1></0>",
+  "register": "Register",
+  "logIn": "Log In",
+  "show": "Show",
+  "hide": "Hide",
+  "usernameLabel": "Username",
+  "passwordLabel": "Password",
+  "errUsernameMin": "Username should be at least 4 characters long",
+  "errUsernameMax": "Username should be at most 20 characters long",
+  "errUsernameUnique": "Username has already been claimed",
+  "errPasswordMin": "Password should be at least 8 characters long"
+}
