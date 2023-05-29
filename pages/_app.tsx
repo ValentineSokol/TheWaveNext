@@ -1,11 +1,15 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
 import '@/styles/globals.css';
-import Footer from "@/components/Footer/Footer";
+import '@/styles/font_scale.scss';
+
+import Footer from '../components/Footer/Footer';
 
 export default function App({Component, pageProps}) {
     return (
-    <>
-        <Component {...pageProps} />;
-        <Footer />
-    </>
+        <QueryClientProvider client={new QueryClient()}>
+            <Component {...pageProps} />
+            <Footer />
+        </QueryClientProvider>
     );
 }
