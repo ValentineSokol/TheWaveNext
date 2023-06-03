@@ -43,10 +43,6 @@ export default function Footer() {
                     <FontAwesomeIcon icon={faLinkedinIn}/>
                 </a>
             </section>
-
-            <section>
-                <h3>Legal</h3>
-            </section>
             <Sea/>
         </footer>
     );
