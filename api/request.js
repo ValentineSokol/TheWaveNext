@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:5008';
+export const BASE_URL = '/api';
 
 export class ApiError extends Error {
     constructor(url, status) {
