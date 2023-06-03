@@ -21,6 +21,14 @@
     max-width: 10%;
   }
 }
+
+.desktopSearch {
+  display: none;
+  margin-left: 3rem;
+  @include media.mediaQuery('desktop') {
+    display: initial;
+  }
+}
 .logoWithText {
   color: colors.$background;
   display: flex;

@@ -48,6 +48,10 @@ export const TopNavigation = () => {
                                                                                      icon={link.icon}>{link.text}</Text></Link>
                             </li>
                         ))}
+                    <li className={styles.desktopSearch}>
+                        <SearchInput multiSelect={false} labelVisuallyHidden
+                                     placeholder='type to start a new search'/>
+                    </li>
                     {user?.isLoggedIn &&
                         <li className={styles.logOutBtn}><Button textClassName={styles.linkText} icon={faRightFromBracket} fontSize={4} size='s'
                                     variant="link_light">Log Out</Button></li>
