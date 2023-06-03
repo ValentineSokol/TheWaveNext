@@ -20,7 +20,7 @@ export const Heading = ({children, icon, iconPosition, level = 1, fontSize = 4, 
     return (
         <Text
             className={styles.heading}
-            fontSize={defaultFontSize[level] || fontSize}
+            fontSize={fontSize || defaultFontSize[level]}
             Tag={Tag}
             {...props}
         >
