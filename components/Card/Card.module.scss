@@ -1,0 +1,8 @@
+@use '../../styles/colors';
+
+.card {
+  background: colors.$background;
+  box-shadow: 2px 2px 5px colors.$accent;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
