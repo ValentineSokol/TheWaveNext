@@ -8,7 +8,8 @@ export const UserApi = {
     },
     register: (credentials) => request.post('/users', credentials),
     logIn: (credentials) => request.post('/auth/local', credentials),
-    getCurrentUser: () => request.get('/users/current')
+    getCurrentUser: () => request.get('/users/current'),
+    getUser: (id) => request.get(`/users/${id}`),
 
 }
 
@@ -41,9 +42,19 @@ export const useLocalAuth = (isLogin, { onError, delay }) => {
 
 export const useCurrentUser = () => {
     const result = useQuery({
-        key: 'currentUser',
+        key: ['currentUser'],
         queryFn: UserApi.getCurrentUser,
     });
 
     return { user: result.data, ...result };
+};
+
+export const useUser = (id, { initialData } = {}) => {
+    const result = useQuery({
+       queryKey: ['user', id],
+       queryFn: () => UserApi.getUser(id),
+       initialData
+    });
+    return { user: result?.data?.user, ...result };
 }
+
