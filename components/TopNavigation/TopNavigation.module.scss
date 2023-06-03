@@ -1,0 +1,46 @@
+@use '../../styles/colors';
+@use '../../styles/media';
+@use '../../styles/mixins';
+
+.nav {
+  padding: 1rem;
+  background: colors.$primary;
+  position: sticky;
+  top: 0;
+}
+
+.list {
+  width: 90%;
+  margin: 0 .5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+  @include media.mediaQuery('mobile') {
+    .linkText {
+    @include mixins.visuallyHidden();
+  }
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+
+  @include media.mediaQuery('tablet', 'desktop') {
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: colors.$background;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+
