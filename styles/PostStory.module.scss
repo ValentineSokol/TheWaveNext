@@ -1,0 +1,33 @@
+@use './colors';
+
+.main {
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.card {
+  width: 50%;
+}
+
+.stepBtns {
+  display: flex;
+  gap: .5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchInputWrap {
+  max-width: 30%;
+}
+.searchInput {
+  width: 100%;
+}
+
+.inputs {
+  margin: 0 auto;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 4rem;
+}

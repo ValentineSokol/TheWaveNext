@@ -1,6 +1,5 @@
 $breakpoints: (
         "mobile": (
-                "min": 480px,
                 "max": 767px
         ),
         "tablet": (
@@ -22,7 +21,13 @@ $breakpoints: (
       @media (min-width: $minWidth) {
         @content;
       }
-    } @else {
+    }
+    @if $platform == 'mobile' {
+      @media (max-width: $maxWidth) {
+        @content;
+      }
+    }
+    @else {
       @media (min-width: $minWidth) and (max-width: $maxWidth) {
         @content;
       }

@@ -1,0 +1,13 @@
+@use './colors';
+
+@mixin brand-scrollbar() {
+  &::-webkit-scrollbar-thumb {
+    background: colors.$primary;
+  }
+  &::-webkit-scrollbar-track {
+    background: colors.$background;
+  }
+
+  // Standard version (Firefox only for now)
+  scrollbar-color: colors.$primary  colors.$background;
+}
