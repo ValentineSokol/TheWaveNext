@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import {faEye} from "@fortawesome/free-solid-svg-icons/faEye";
 import {faEyeSlash} from "@fortawesome/free-solid-svg-icons/faEyeSlash";
 import {Button} from "../Button/Button";
-import {Input, InputProps} from "../Input/Input";
 import { Text} from "@/components/Text/Text";
 
 import styles from './PasswordInput.module.scss';
 import useTranslation from "next-translate/useTranslation";
-export const PasswordInput = (props: InputProps) => {
+import {FormInput, FormInputProps } from "@/components/Input/FormInput";
+export const PasswordInput = (props: FormInputProps) => {
     const { t } = useTranslation('register');
 
     const [show, setShow] = useState(false);
@@ -21,7 +21,7 @@ export const PasswordInput = (props: InputProps) => {
 
     return (
         <div>
-            <Input
+            <FormInput
                 {...props}
                 name="password"
                 type={show ? 'text' : 'password'}
