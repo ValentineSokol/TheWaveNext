@@ -9,14 +9,54 @@
   top: 0;
 }
 
+.mobileSearchToggle {
+  @include media.mediaQuery('desktop') {
+    display: none;
+  }
+}
+.logo {
+  max-width: 20%;
+  height: auto;
+  @include media.mediaQuery('desktop') {
+    max-width: 10%;
+  }
+}
+.logoWithText {
+  color: colors.$background;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.topBar {
+  margin-bottom: .5rem;
+  display: flex;
+  justify-content: space-between;
+  gap: .5rem;
+  &SearchActive {
+    justify-content: center;
+  }
+}
 .list {
   width: 90%;
   margin: 0 .5rem;
   display: flex;
+  gap: 2rem;
   justify-content: space-around;
   align-items: center;
+  @include media.mediaQuery('desktop') {
+    justify-content: flex-start;
+    gap: 2rem;
+    .logOutBtn {
+      margin-left: auto;
+    }
+  }
 }
-
+.desktopSearch {
+  display: none;
+  @include media.mediaQuery('desktop') {
+    display: initial;
+  }
+}
   @include media.mediaQuery('mobile') {
     .linkText {
     @include mixins.visuallyHidden();

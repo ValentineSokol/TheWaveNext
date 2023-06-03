@@ -11,6 +11,7 @@ import {faMagnifyingGlass} from "@fortawesome/free-solid-svg-icons/faMagnifyingG
 import {faArrowLeftLong} from "@fortawesome/free-solid-svg-icons/faArrowLeftLong";
 import Image from "next/image";
 import logo from '@/assets/logo.png';
+import clsx from "clsx";
 
 
 export const TopNavigation = () => {
@@ -21,7 +22,7 @@ export const TopNavigation = () => {
 
     return (
         <nav className={styles.nav}>
-            <div className={styles.topBar}>
+            <div className={clsx(styles.topBar, showMobileSearch && styles.topBarSearchActive)}>
                 { !showMobileSearch &&
                 <div className={styles.logoWithText}>
                     <Image className={styles.logo} src={logo} alt='Logo'/>
