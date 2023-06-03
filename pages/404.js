@@ -17,13 +17,6 @@ export default function PageNotFound() {
                     <Image alt="" aria-hidden={true} className={styles.lifebuoyImg} src={lifebuoy} />
                     <h1>{t('heading')}</h1>
                     <p>{t('text')}</p>
-
-                    <ul>
-                        <li><Link href="/">Home</Link></li>
-                        <li><Link href="/chat">Chat</Link></li>
-                        <li><Link href="/stories">Stories</Link></li>
-                    </ul>
-
                 </div>
                 <Image alt="" aria-hidden={"true"} className={styles.strandedImg} src={stranded}/>
             </div>
