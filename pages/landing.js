@@ -7,6 +7,7 @@ import {RegisterModal} from "@/components/RegisterForm/RegisterForm";
 import {Head} from "@/components/Head/Head";
 import {Heading} from "@/components/Heading/Heading";
 import {Text} from "@/components/Text/Text";
+import {useCurrentUser} from "@/api/UserApi";
 
 export default function Landing() {
     const {t} = useTranslation('landing');
@@ -19,7 +20,7 @@ export default function Landing() {
             <main>
                 <RegisterModal open={registerOpen} onClose={onRegisterClose} t={t}/>
                 <section className={styles.hero}>
-                    <Heading>{t('heading')}</Heading>
+                    <Heading fontSize={6}>{t('heading')}</Heading>
                     <Button autoFocus size='l' onClick={() => setRegisterOpen(true)}>{t('cta')}</Button>
                 </section>
                 <Heading level={2} fontSize={6}>{t('valueProposition')}</Heading>
