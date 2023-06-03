@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://localhost:5000';
+export const BASE_URL = 'http://localhost:5008';
 
 export class ApiError extends Error {
     constructor(url, status) {
@@ -7,14 +7,14 @@ export class ApiError extends Error {
         this.status = status;
     }
 }
-const request = async (url, { method = 'GET', payload } = {}) => {
+const request = async (url, { method = 'GET', payload, signal } = {}) => {
     let body;
     const headers = new Headers();
     if (payload) {
         headers.set('Content-Type', 'application/json');
         body = JSON.stringify(payload);
     }
-    const res = await fetch(`${BASE_URL}${url}`, { method, headers, body });
+    const res = await fetch(`${BASE_URL}${url}`, { method, headers, body, signal, credentials: 'include' });
     if (!res.ok) throw new ApiError(url, res.status);
     return res.json();
 }
