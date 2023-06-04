@@ -32,7 +32,7 @@ export const Input = forwardRef(({ id, variant = 'normal', onChange, autoFocus, 
             }
             {slotAfterLabel}
             <input
-                aria-label={labelVisuallyHidden && label}
+                { ...(labelVisuallyHidden ? { ['aria-label']: label} : {} )}
                 ref={ref}
                 {...(error ? { ['aria-describedby']: errorId } : {})}
                 aria-invalid={!!error}

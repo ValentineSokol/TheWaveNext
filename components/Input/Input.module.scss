@@ -26,7 +26,7 @@
   border: none;
   border-bottom: 2px solid darken(#F5F5F5, 50%);
   padding: 1rem 1rem 0.5rem;
-  background: #F5F5F5;
+  background: colors.$lightGray;
   border-radius: 5px 5px 0 0;
 
   &:focus {
