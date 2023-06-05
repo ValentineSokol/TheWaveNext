@@ -15,6 +15,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@hookform/resolvers": "^3.1.0",
+    "@imbios/next-pwa": "^1.1.1",
     "@tanstack/react-query": "^4.29.7",
     "@tanstack/react-query-devtools": "^4.29.7",
     "clsx": "^1.2.1",
@@ -27,6 +28,7 @@
     "react-dom": "18.2.0",
     "react-draft-wysiwyg": "^1.15.0",
     "react-hook-form": "^7.43.9",
+    "workbox-precaching": "^7.0.0",
     "yup": "^1.1.1"
   },
   "devDependencies": {
@@ -40,8 +42,8 @@
     "@storybook/testing-library": "^0.0.14-next.2",
     "@tanstack/eslint-plugin-query": "^4.29.8",
     "eslint-plugin-storybook": "^0.6.12",
+    "next-http-proxy-middleware": "^1.2.5",
     "sass": "^1.62.1",
-    "storybook": "^7.0.17",
-    "next-http-proxy-middleware": "^1.2.5"
+    "storybook": "^7.0.17"
   }
 }
