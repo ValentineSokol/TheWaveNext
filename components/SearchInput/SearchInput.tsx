@@ -48,10 +48,6 @@ const resultsToShow = useMemo(() =>  matches?.filter(match => !selectedValues.fi
      setShowResults(!!term);
     }, [term]);
 
-    useEffect(() => {
-       setShowResults(!!resultsToShow?.length);
-    }, [resultsToShow])
-
     const onTermChange = (e) => setTerm(e.target.value);
     const onItemChoice = () => setShowResults(false);
     const onInputFocus = () => {
