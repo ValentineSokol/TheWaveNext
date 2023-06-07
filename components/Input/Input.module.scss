@@ -21,6 +21,7 @@
 }
 
 .filled {
+  box-sizing: border-box;
   transition: border-bottom-color .1s linear;
   outline: none;
   border: none;

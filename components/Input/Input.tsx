@@ -9,6 +9,7 @@ import { Text } from "@/components/Text/Text";
 export interface InputProps extends HTMLAttributes<HTMLInputElement>, AutoFocusProps {
     label: string,
     slotAfterLabel?: ReactElement,
+    slotAfterInput?: ReactElement,
     labelVisuallyHidden?: boolean,
     name: string,
     error?: string,
@@ -17,7 +18,7 @@ export interface InputProps extends HTMLAttributes<HTMLInputElement>, AutoFocusP
     variant?: 'normal' | 'filled',
     renderLabel?: (label : ReactElement) => ReactElement,
 }
-export const Input = forwardRef(({ id, variant = 'normal', onChange, autoFocus, focusCb, wrapClassName, fullWidth,  label, renderLabel, slotAfterLabel = null, labelVisuallyHidden = false, error, ...props } : InputProps, ref: ForwardedRef<HTMLInputElement>) => {
+export const Input = forwardRef(({ id, variant = 'normal', onChange, autoFocus, focusCb, wrapClassName, fullWidth,  label, renderLabel, slotAfterLabel = null, slotAfterInput = null, labelVisuallyHidden = false, error, ...props } : InputProps, ref: ForwardedRef<HTMLInputElement>) => {
     const defaultId = useId();
     const errorId = useId();
     useAutoFocus<HTMLInputElement>(autoFocus, { focusCb, customRef: ref });
@@ -46,6 +47,7 @@ export const Input = forwardRef(({ id, variant = 'normal', onChange, autoFocus, 
                 )}
                 {...props}
             />
+            {slotAfterInput}
             { error && <ErrorText id={errorId} className={styles.error}>{error}</ErrorText> }
         </div>
     )
