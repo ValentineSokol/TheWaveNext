@@ -1,0 +1,28 @@
+@use '../../styles/colors';
+@use '../../styles/media';
+
+.outer {
+  transition: max-width .5s ease-in-out;
+  height: 1rem;
+  width: 100%;
+  background: colors.$lightGray;
+
+  @include media.noAnim() {
+    transition: none;
+  }
+}
+
+.inner {
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding-right: 0.5rem;
+  color: colors.$background;
+  text-align: right;
+  font-weight: bold;
+  height: 100%;
+  background: colors.$primary;
+}
+
+.zeroPercent {
+  opacity: 0;
+}
