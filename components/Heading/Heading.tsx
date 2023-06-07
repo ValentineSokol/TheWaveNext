@@ -4,6 +4,7 @@ import styles from './Heading.module.scss';
 import {Text} from "@/components/Text/Text";
 
 import { LeadingIcon, WithIconProp } from "@/components/LeadingIcon/LeadingIcon";
+import clsx from "clsx";
 
 interface HeadingProps extends HTMLAttributes<HTMLHeadingElement>, WithIconProp {
     level?: 1 | 2 | 3 | 4 | 5 | 6,
@@ -13,13 +14,13 @@ interface HeadingProps extends HTMLAttributes<HTMLHeadingElement>, WithIconProp 
 const defaultFontSize = {
     1: 8,
 };
-export const Heading = ({children, icon, iconPosition, level = 1, fontSize = 4, ...props}: HeadingProps) => {
+export const Heading = ({children, className, icon, iconPosition, level = 1, fontSize = 4, ...props}: HeadingProps) => {
     const Tag: keyof JSX.IntrinsicElements = `h${level}`;
 
 
     return (
         <Text
-            className={styles.heading}
+            className={clsx(styles.heading, className)}
             fontSize={fontSize || defaultFontSize[level]}
             Tag={Tag}
             {...props}
