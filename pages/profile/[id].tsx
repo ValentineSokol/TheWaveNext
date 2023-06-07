@@ -19,9 +19,9 @@ export default function ProfilePage({user}) {
 export const getServerSideProps = async (context) => {
     const {id} = context.query;
     try {
-        const {user} = await UserApi.getUser(id);
+        const { user } = await UserApi.getUser(id);
 
-        return {props: {user}};
+        return { props: { user } };
     } catch (err) {
         if (err.status === 404) {
             return {
