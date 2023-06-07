@@ -1,9 +1,9 @@
 import React from "react";
 import NextHead from "next/head";
 
-export const Head = ({ t }) => (
+export const Head = ({ t, lang }) => (
     <NextHead>
-        <title>{t('title')}</title>
-        <meta name="description" content={t('description')}/>
+        <title>{t('title', { fallback: 'common:title' })}</title>
+        <meta name="description" content={t('common:description')} />
     </NextHead>
 );
