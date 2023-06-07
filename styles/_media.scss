@@ -34,3 +34,9 @@ $breakpoints: (
     }
   }
 }
+
+@mixin noAnim() {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
