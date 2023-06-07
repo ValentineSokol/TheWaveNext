@@ -2,7 +2,6 @@ import React, {useEffect, useState, useId, useRef, useMemo} from "react";
 import {Input, InputProps} from "@/components/Input/Input";
 import {useDebounce} from "@/utils/hooks/useDebounce";
 import {useSearch} from '@/api/SearchApi';
-import Link from "next/link";
 import styles from './SearchInput.module.scss';
 import {Spinner} from "@/components/Spinner/Spinner";
 import {OutsideEventBoundary} from "@/components/OutsideEventBoundary/OutsideEventBoundary";
@@ -132,46 +131,46 @@ const resultsToShow = useMemo(() =>  matches?.filter(match => !selectedValues.fi
                     variant='filled'
                     label={label || 'search'}
                     slotAfterLabel={selectedItems}
+                    slotAfterInput={
+                            showResults &&
+                        <Card role='alert' aria-controls={inputId} aria-expanded={showResults} className={styles.dropdown}>
+                            <div className={styles.statusContainer}>
+                                {isLoading && <Spinner aria-label='Loading your search' fontSize={4} aria-busy={isLoading}/>}
+                                {
+                                    isError &&
+                                    <>
+                                        <ErrorText aria-describedby={{...(isError? {['aria-describedby']: retryButtonHintId } : {}) }} fontSize={3} id={errorId}>Something went wrong while searching</ErrorText>
+                                        <Button onClick={refetch} size='s'>Retry</Button>
+                                        <span className={styles.retryHint} id={retryButtonHintId}>You can try again using the retry button below</span>
+                                    </>
+                                }
+                                {!isLoading && !isError && !resultsToShow?.length && <Text aria-hidden="true">No results</Text>}
+                            </div>
+                            <ul aria-label={matches && `${matches?.length} results found`}>
+                                <>
+                                    {
+                                        resultsToShow?.map((match, i) => (
+                                            <li
+                                                aria-current={currentIndexRef.current === i}
+                                                key={match.id}
+                                                className={styles.resultItem} onKeyDown={onDropdownExit}
+                                                onClick={!multiSelect ? onItemChoice : undefined}
+                                            >
+                                                <SearchResultFactory
+                                                    result={match}
+                                                    onResultItemHover={onResultItemHover}
+                                                    onResultItemSelect={onResultItemSelect}
+                                                    i={i}
+                                                    resultItemRefs={resultItemRefs.current} />
+                                            </li>)
+                                        )
+                                    }
+                                </>
+                            </ul>
+                        </Card>
+                    }
                     {...props}
                 />
-                {
-                    showResults &&
-                    <Card role='alert' aria-controls={inputId} aria-expanded={showResults} className={styles.dropdown}>
-                        <div className={styles.statusContainer}>
-                            {isLoading && <Spinner aria-label='Loading your search' fontSize={4} aria-busy={isLoading}/>}
-                            {
-                                isError &&
-                                <>
-                                    <ErrorText aria-describedby={{...(isError? {['aria-describedby']: retryButtonHintId } : {}) }} fontSize={3} id={errorId}>Something went wrong while searching</ErrorText>
-                                    <Button onClick={refetch} size='s'>Retry</Button>
-                                    <span className={styles.retryHint} id={retryButtonHintId}>You can try again using the retry button below</span>
-                                </>
-                            }
-                            {!isLoading && !isError && !resultsToShow?.length && <Text aria-hidden="true">No results</Text>}
-                        </div>
-                    <ul aria-label={matches && `${matches?.length} results found`}>
-                        <>
-                            {
-                               resultsToShow?.map((match, i) => (
-                                    <li
-                                        aria-current={currentIndexRef.current === i}
-                                        key={match.id}
-                                        className={styles.resultItem} onKeyDown={onDropdownExit}
-                                        onClick={!multiSelect ? onItemChoice : undefined}
-                                    >
-                                      <SearchResultFactory
-                                          result={match}
-                                          onResultItemHover={onResultItemHover}
-                                          onResultItemSelect={onResultItemSelect}
-                                          i={i}
-                                          resultItemRefs={resultItemRefs.current} />
-                                    </li>)
-                                )
-                            }
-                        </>
-                    </ul>
-                    </Card>
-                }
             </div>
         </OutsideEventBoundary>
     )
