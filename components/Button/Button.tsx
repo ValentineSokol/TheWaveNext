@@ -10,7 +10,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, WithIconP
     autoFocus?: boolean,
     textClassName?: string,
     size?: 's' | 'm' | 'l',
-    variant?: 'primary' | 'accent' | 'transparent' | 'link_light' | 'link_dark' | 'link_accent'
+    variant?: 'primary' | 'accent' | 'transparent' | 'link_light' | 'link_dark' | 'link_accent' | 'outline'
     isLoading?: boolean,
     disabled?: boolean,
     spinnerHideDelay?: number
@@ -68,3 +68,5 @@ export const Button = forwardRef(({
         </button>
     );
 });
+
+Button.displayName = 'Button';
