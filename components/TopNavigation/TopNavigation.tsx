@@ -19,6 +19,7 @@ export const TopNavigation = () => {
     const [showMobileSearch, setShowMobileSearch] = useState(false);
 
     const onSearchButtonClick = () => setShowMobileSearch(prev => !prev);
+    const searchInput = <SearchInput dropdownClassName={styles.searchDropdown} fullWidth multiSelect={false} labelVisuallyHidden placeholder='type to start a new search' />
 
     return (
         <nav className={styles.nav}>
@@ -32,11 +33,7 @@ export const TopNavigation = () => {
                 <Button className={styles.mobileSearchToggle}
                         icon={showMobileSearch ? faArrowLeftLong : faMagnifyingGlass} onClick={onSearchButtonClick}
                         aria-label='Search Wave'/>
-                {
-                    showMobileSearch &&
-                    <SearchInput fullWidth multiSelect={false} labelVisuallyHidden
-                                 placeholder='type to start a new search'/>
-                }
+                {showMobileSearch && searchInput}
             </div>
             {
                 !showMobileSearch &&
@@ -49,8 +46,7 @@ export const TopNavigation = () => {
                             </li>
                         ))}
                     <li className={styles.desktopSearch}>
-                        <SearchInput multiSelect={false} labelVisuallyHidden
-                                     placeholder='type to start a new search'/>
+                        {searchInput}
                     </li>
                     {user?.isLoggedIn &&
                         <li className={styles.logOutBtn}><Button textClassName={styles.linkText} icon={faRightFromBracket} fontSize={4} size='s'

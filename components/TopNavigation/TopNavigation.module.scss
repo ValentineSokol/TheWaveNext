@@ -10,6 +10,9 @@
   z-index: 10000;
 }
 
+.searchDropdown {
+  position: absolute;
+}
 .mobileSearchToggle {
   @include media.mediaQuery('desktop') {
     display: none;

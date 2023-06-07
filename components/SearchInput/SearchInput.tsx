@@ -19,7 +19,7 @@ interface SelectedValue {
 
 }
 export interface SearchInputProps extends InputProps {
-
+    dropdownClassName?: string,
     selectedValues?: SelectedValue[],
     multiSelect?: boolean,
     onResultSelect?: (selectedValues: SelectedValue[], id: number) => void,
@@ -29,7 +29,7 @@ export interface SearchInputProps extends InputProps {
     inputWrapClassName?:string,
 }
 
-export const SearchInput = ({ wrapClassName, selectedValues = [], onResultSelect, onResultRemove, inputWrapClassName, multiSelect = true, entity, label, ...props}: SearchInputProps) => {
+export const SearchInput = ({ wrapClassName, dropdownClassName, selectedValues = [], onResultSelect, onResultRemove, inputWrapClassName, multiSelect = true, entity, label, ...props}: SearchInputProps) => {
     const [term, setTerm] = useState('');
     const [showResults, setShowResults] = useState(false);
     const [inputAutoFocused, setInputAutoFocused] = useState(false);
@@ -133,7 +133,7 @@ const resultsToShow = useMemo(() =>  matches?.filter(match => !selectedValues.fi
                     slotAfterLabel={selectedItems}
                     slotAfterInput={
                             showResults &&
-                        <Card role='alert' aria-controls={inputId} aria-expanded={showResults} className={styles.dropdown}>
+                        <Card role='alert' aria-controls={inputId} aria-expanded={showResults} className={clsx(styles.dropdown, dropdownClassName)}>
                             <div className={styles.statusContainer}>
                                 {isLoading && <Spinner aria-label='Loading your search' fontSize={4} aria-busy={isLoading}/>}
                                 {
