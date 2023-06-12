@@ -5,15 +5,15 @@ import { faPenClip } from "@fortawesome/free-solid-svg-icons/faPenClip";
 import { faRightToBracket } from '@fortawesome/free-solid-svg-icons/faRightToBracket';
 
 const LOGGED_IN_LINKS = (user) => [
-    { text: 'Profile', href: `/profile/${user?.id}`, icon: faUser },
-    { text: 'Chat', href: '/chat', icon: faComments },
+    { key: 'profile', href: `/profile/${user?.id}`, icon: faUser },
+    { key: 'chat', href: '/chat', icon: faComments },
 ];
 
 const LOGGED_OUT_LINKS = [
-    { text: 'Register', href: `${typeof window !== 'undefined' ? window.location.pathname : '/'}?showAuthModal=true`, icon: faRightToBracket },
+    { key: 'register', href: `${typeof window !== 'undefined' ? window.location.pathname : '/'}?showAuthModal=true`, icon: faRightToBracket },
 ]
 export const NAV_LINKS = (user) => [
-    { text: 'Home', href: '/', icon: faHouse },
-    { text: 'Write a story', href: '/stories/post', icon: faPenClip },
+    { key: 'home', href: '/', icon: faHouse },
+    { key: 'post', href: '/stories/post', icon: faPenClip },
     ...(user?.isLoggedIn ? LOGGED_IN_LINKS(user)  : LOGGED_OUT_LINKS),
 ]

@@ -3,7 +3,7 @@ module.exports = {
     defaultLocale: 'en',
     pages: {
         '/': ['landing', 'register'],
-        '*': ['common', 'footer', 'register'],
+        '*': ['common', 'navbar', 'footer', 'register'],
         '/landing': ['landing', 'register'],
         '/404': ['404'],
         '/register': ['register']
