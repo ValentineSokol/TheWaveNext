@@ -28,6 +28,7 @@ export const Button = forwardRef(({
                            size = 'm',
                            icon,
                            iconPosition,
+                           iconProps,
                            isLoading,
                            spinnerHideDelay,
                            children,
@@ -59,6 +60,7 @@ export const Button = forwardRef(({
                         childClassName={textClassName}
                         icon={icon}
                         iconPosition={iconPosition}
+                        iconProps={iconProps}
                         fontSize={fontSize || fontSizes[size]}
                         Tag='div'
                     >

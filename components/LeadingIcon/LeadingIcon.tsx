@@ -1,4 +1,4 @@
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {FontAwesomeIcon, FontAwesomeIconProps} from "@fortawesome/react-fontawesome";
 import React, { ReactElement } from "react";
 import {IconProp} from "@fortawesome/fontawesome-svg-core";
 
@@ -10,20 +10,24 @@ export interface WithIconProp {
     onIconClick?: () => void,
 
     iconAriaLabel?:string,
-    iconPosition?: 'leading' | 'trailing'
+    iconPosition?: 'leading' | 'trailing',
+    iconProps?: Omit<FontAwesomeIconProps, 'icon'>
 }
-interface LeadingIconProps extends WithIconProp{
+interface LeadingIconProps extends WithIconProp {
     children: ReactElement,
 }
-export const LeadingIcon = ({ children, icon, onIconClick, iconAriaLabel, iconPosition = 'leading' } : LeadingIconProps) : ReactElement => {
+export const LeadingIcon = ({ children, icon, iconProps, onIconClick, iconAriaLabel, iconPosition = 'leading' } : LeadingIconProps) : ReactElement => {
     if (!icon) return children;
 
-    const renderedIcon = onIconClick ? <Button variant='transparent' onClick={onIconClick} aria-label={iconAriaLabel} size='s' icon={icon} /> :  <FontAwesomeIcon className={styles[iconPosition]} icon={icon}/>;
+    const renderedIcon = onIconClick ?
+        <Button variant='transparent' onClick={onIconClick} aria-label={iconAriaLabel} size='s' icon={icon} />
+        :
+        <FontAwesomeIcon className={styles[iconPosition]} icon={icon} {...iconProps} />;
     const content = [renderedIcon, children];
 
     return (
         <>
-            <div style={{ display: 'flex', alignItems: 'center' }}>{iconPosition === 'leading' ? content : [...content].reverse()}</div>
+            <div>{iconPosition === 'leading' ? content : [...content].reverse()}</div>
         </>
     );
 }

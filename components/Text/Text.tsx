@@ -11,10 +11,10 @@ export interface TextProps extends HTMLProps<any>, FontSizeProp, WithIconProp {
     childClassName?: string,
     Tag?: keyof JSX.IntrinsicElements
 }
-export const Text = ({ children, className, childClassName, icon, onIconClick, iconPosition, iconAriaLabel, Tag = 'span', fontSize = 3, ...props }: TextProps) => {
+export const Text = ({ children, className, childClassName, icon, onIconClick, iconPosition, iconAriaLabel, iconProps, Tag = 'span', fontSize = 3, ...props }: TextProps) => {
     return (
         <Tag className={clsx(className,`fs-${fontSize}`)} {...props}>
-            <LeadingIcon iconAriaLabel={iconAriaLabel} icon={icon} iconPosition={iconPosition} onIconClick={onIconClick}>
+            <LeadingIcon iconAriaLabel={iconAriaLabel} icon={icon} iconPosition={iconPosition} onIconClick={onIconClick} iconProps={iconProps}>
                 <span className={childClassName}>{children}</span>
             </LeadingIcon>
         </Tag>

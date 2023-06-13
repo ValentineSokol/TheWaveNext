@@ -1,5 +1,4 @@
 import React, {ReactNode} from "react";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTriangleExclamation} from "@fortawesome/free-solid-svg-icons/faTriangleExclamation";
 import {getAnimationsEnabled} from "../../utils/getAnimationsEnabled";
 
@@ -15,8 +14,7 @@ interface ErrorTextProps extends TextProps {
 }
 
 export const ErrorText = ({className, children, id, ...props }: ErrorTextProps) => ((
-    <Text {...props} id={id} className={clsx(styles.errorText, className)} role="alert">
-        <FontAwesomeIcon icon={faTriangleExclamation} beatFade={getAnimationsEnabled()}/>
+    <Text icon={faTriangleExclamation} iconProps={{ beatFade: getAnimationsEnabled() }} {...props} id={id} className={clsx(styles.errorText, className)} role="alert">
         {children}
     </Text>
 ));
