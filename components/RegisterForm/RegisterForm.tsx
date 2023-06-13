@@ -35,7 +35,13 @@ export const RegisterModal = ({ login = false, onClose, open = true}) => {
 
     const {setValue, handleSubmit, clearErrors, formState: {errors}} = formAPI;
 
-    const {mutate, isLoading, error} = useLocalAuth(isLogin, {onError: () => setShowRequestError(true), delay: 200 });
+    const {mutate, isLoading, error} = useLocalAuth(
+        isLogin,
+        {
+            onSuccess: onClose,
+            onError: () => setShowRequestError(true),
+        },
+    );
 
 
     const onSubmit = async (data, e) => {

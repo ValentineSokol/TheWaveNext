@@ -21,5 +21,6 @@ const request = async (url, { method = 'GET', payload, signal } = {}) => {
 
 export default {
     get: (url) => request(url),
-    post: (url, payload) => request(url, { method: 'POST', payload })
+    post: (url, payload) => request(url, { method: 'POST', payload }),
+    delete: (url) => request(url, { method: 'DELETE' })
 };
