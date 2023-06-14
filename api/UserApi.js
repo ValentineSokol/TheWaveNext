@@ -19,8 +19,8 @@ export const useLocalAuth = (isLogin, { onSuccess, onError } = {}) => {
 
     const mutation = useMutation({
         mutationFn: isLogin ? UserApi.logIn : UserApi.register,
-        onSuccess: () => {
-            queryClient.refetchQueries({ queryKey: ['currentUser'] });
+        onSuccess: async () => {
+            await queryClient.refetchQueries({ queryKey: ['currentUser'] });
             onSuccess();
         },
         onError
@@ -29,7 +29,7 @@ export const useLocalAuth = (isLogin, { onSuccess, onError } = {}) => {
 }
 export const useCurrentUser = () => {
     const result = useQuery({
-        key: ['currentUser'],
+        queryKey: ['currentUser'],
         queryFn: UserApi.getCurrentUser,
     });
 
@@ -49,7 +49,7 @@ export const useLogout = () => {
   const queryClient = useQueryClient();
   const mutation = useMutation({
       mutationFn: UserApi.logOut,
-      onSuccess: () => queryClient.setQueryData(['currentUser'], { isLoggedIn: false } )
+      onSuccess: () =>   queryClient.setQueryData(['currentUser'], { isLoggedIn: false })
   });
   return mutation.mutate;
 };
