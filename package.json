@@ -23,6 +23,7 @@
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
     "html-to-draftjs": "^1.5.0",
+    "isomorphic-dompurify": "^1.6.0",
     "next": "13.4.2",
     "next-translate": "^2.0.5",
     "next-translate-plugin": "^2.0.5",
