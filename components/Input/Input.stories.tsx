@@ -37,3 +37,21 @@ export const WithCustomLabel = {
     ),
   },
 };
+
+export const WithSlotAfterLabel = {
+  args: {
+    ...Default.args,
+    label: 'username',
+    slotAfterLabel: <p>Some dynamic element after label</p>,
+    error: 'Username already taken!',
+  },
+};
+
+export const WithSlotAfterInput = {
+  args: {
+    ...Default.args,
+    label: 'username',
+    slotAfterInput: <p>Some dynamic element after input</p>,
+    error: 'Username already taken!',
+  },
+};
