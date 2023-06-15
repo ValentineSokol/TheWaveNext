@@ -20,7 +20,6 @@
     "@tanstack/react-query-devtools": "^4.29.7",
     "clsx": "^1.2.1",
     "draftjs-to-html": "^0.9.1",
-    "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
     "html-to-draftjs": "^1.5.0",
     "isomorphic-dompurify": "^1.6.0",
@@ -40,13 +39,20 @@
     "@storybook/addon-interactions": "^7.0.17",
     "@storybook/addon-links": "^7.0.17",
     "@storybook/blocks": "^7.0.17",
-    "@storybook/nextjs": "^7.0.17",
+    "@storybook/nextjs": "^7.0.21",
     "@storybook/react": "^7.0.17",
     "@storybook/testing-library": "^0.0.14-next.2",
     "@tanstack/eslint-plugin-query": "^4.29.8",
+    "eslint": "^8.42.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.12",
     "next-http-proxy-middleware": "^1.2.5",
     "sass": "^1.62.1",
-    "storybook": "^7.0.17"
+    "storybook": "^7.0.17",
+    "tsconfig-paths-webpack-plugin": "^4.0.1"
   }
 }
