@@ -13,10 +13,20 @@ interface ErrorTextProps extends TextProps {
 }
 
 export function ErrorText({
-  className, children, id, ...props
+  className,
+  children,
+  id,
+  ...props
 }: ErrorTextProps) {
   return (
-    <Text icon={faTriangleExclamation} iconProps={{ beatFade: getAnimationsEnabled() }} {...props} id={id} className={clsx(styles.errorText, className)} role="alert">
+    <Text
+      icon={faTriangleExclamation}
+      iconProps={{ beatFade: getAnimationsEnabled() }}
+      {...props}
+      id={id}
+      className={clsx(styles.errorText, className)}
+      role="alert"
+    >
       {children}
     </Text>
   );
