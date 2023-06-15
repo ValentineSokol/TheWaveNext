@@ -19,8 +19,8 @@
 
 # service worker
 public/sw.js
+public/*.map
 public/workbox*.js
-
 
 # misc
 .DS_Store
