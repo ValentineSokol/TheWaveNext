@@ -1,5 +1,5 @@
 import React, {
-  HTMLAttributes, forwardRef, ReactElement, useId, ForwardedRef,
+  forwardRef, ReactElement, useId, ForwardedRef, DetailedHTMLProps, InputHTMLAttributes,
 } from 'react';
 import clsx from 'clsx';
 import { AutoFocusProps, useAutoFocus } from '@/utils/hooks/useAutoFocus';
@@ -8,7 +8,9 @@ import { Text } from '@/components/Text/Text';
 import { ErrorText } from '../ErrorText/ErrorText';
 import styles from './Input.module.scss';
 
-export interface InputProps extends HTMLAttributes<HTMLInputElement>, AutoFocusProps {
+export interface InputProps extends
+  DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
+  AutoFocusProps {
   label: string,
   slotAfterLabel?: ReactElement,
   slotAfterInput?: ReactElement,

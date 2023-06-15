@@ -1,44 +1,45 @@
-import React, { useState } from "react";
-import {faEye} from "@fortawesome/free-solid-svg-icons/faEye";
-import {faEyeSlash} from "@fortawesome/free-solid-svg-icons/faEyeSlash";
-import {Button} from "../Button/Button";
-import { Text} from "@/components/Text/Text";
+import React, { useState } from 'react';
+import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
+import { faEyeSlash } from '@fortawesome/free-solid-svg-icons/faEyeSlash';
+import { Text } from '@/components/Text/Text';
 
+import useTranslation from 'next-translate/useTranslation';
+import { FormInput, FormInputProps } from '@/components/Input/FormInput';
 import styles from './PasswordInput.module.scss';
-import useTranslation from "next-translate/useTranslation";
-import {FormInput, FormInputProps } from "@/components/Input/FormInput";
-export const PasswordInput = (props: FormInputProps) => {
-    const { t } = useTranslation('register');
+import { Button } from '../Button/Button';
 
-    const [show, setShow] = useState(false);
+export function PasswordInput(props: FormInputProps) {
+  const { t } = useTranslation('register');
 
-    const icon = show ? faEyeSlash : faEye;
+  const [show, setShow] = useState(false);
 
-    const toggleShowPassword = (e) => {
-        e.preventDefault();
-        setShow(prev => !prev);
-    }
+  const icon = show ? faEyeSlash : faEye;
 
-    return (
-        <div>
-            <FormInput
-                {...props}
-                name="password"
-                type={show ? 'text' : 'password'}
-                renderLabel={(label) => (
-                    <span className={styles.header}>
-                        {label}
-                        <Button
-                            icon={icon}
-                            size='s'
-                            variant="transparent"
-                            onClick={toggleShowPassword}
-                        >
-                            <Text>{show ? t('register:hide') : t('register:show')}</Text>
-                        </Button>
-                    </span>
-                )}
-            />
-        </div>
-    )
-};
+  const toggleShowPassword = (e) => {
+    e.preventDefault();
+    setShow((prev) => !prev);
+  };
+
+  return (
+    <div>
+      <FormInput
+        {...props}
+        name="password"
+        type={show ? 'text' : 'password'}
+        renderLabel={(label) => (
+          <span className={styles.header}>
+            {label}
+            <Button
+              icon={icon}
+              size="s"
+              variant="transparent"
+              onClick={toggleShowPassword}
+            >
+              <Text>{show ? t('register:hide') : t('register:show')}</Text>
+            </Button>
+          </span>
+        )}
+      />
+    </div>
+  );
+}
