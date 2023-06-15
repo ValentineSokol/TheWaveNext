@@ -1,33 +1,37 @@
-import {FontAwesomeIcon, FontAwesomeIconProps} from "@fortawesome/react-fontawesome";
-import React, { ReactElement } from "react";
-import {IconProp} from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
+import React, { ReactNode } from 'react';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
+import { Button } from '@/components/Button/Button';
 import styles from './LeadingIcon.module.scss';
-import {Button} from "@/components/Button/Button";
 
 export interface WithIconProp {
-    icon?: IconProp,
-    onIconClick?: () => void,
+  icon?: IconProp,
+  onIconClick?: () => void,
 
-    iconAriaLabel?:string,
-    iconPosition?: 'leading' | 'trailing',
-    iconProps?: Omit<FontAwesomeIconProps, 'icon'>
+  iconAriaLabel?:string,
+  iconPosition?: 'leading' | 'trailing',
+  iconProps?: Omit<FontAwesomeIconProps, 'icon'>
 }
 interface LeadingIconProps extends WithIconProp {
-    children: ReactElement,
+  children: ReactNode,
 }
-export const LeadingIcon = ({ children, icon, iconProps, onIconClick, iconAriaLabel, iconPosition = 'leading' } : LeadingIconProps) : ReactElement => {
-    if (!icon) return children;
+export function LeadingIcon({
+  children,
+  icon,
+  iconProps,
+  onIconClick,
+  iconAriaLabel,
+  iconPosition = 'leading',
+} : LeadingIconProps) {
+  if (!icon) return children;
 
-    const renderedIcon = onIconClick ?
-        <Button variant='transparent' onClick={onIconClick} aria-label={iconAriaLabel} size='s' icon={icon} />
-        :
-        <FontAwesomeIcon className={styles[iconPosition]} icon={icon} {...iconProps} />;
-    const content = [renderedIcon, children];
+  const renderedIcon = onIconClick
+    ? <Button variant="transparent" onClick={onIconClick} aria-label={iconAriaLabel} size="s" icon={icon} />
+    : <FontAwesomeIcon className={styles[iconPosition]} icon={icon} {...iconProps} />;
+  const content = [renderedIcon, children];
 
-    return (
-        <>
-            <div>{iconPosition === 'leading' ? content : [...content].reverse()}</div>
-        </>
-    );
+  return (
+    <div>{iconPosition === 'leading' ? content : [...content].reverse()}</div>
+  );
 }
