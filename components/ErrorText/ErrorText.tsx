@@ -22,10 +22,10 @@ export function ErrorText({
     <Text
       icon={faTriangleExclamation}
       iconProps={{ beatFade: getAnimationsEnabled() }}
-      {...props}
       id={id}
       className={clsx(styles.errorText, className)}
       role="alert"
+      {...props}
     >
       {children}
     </Text>

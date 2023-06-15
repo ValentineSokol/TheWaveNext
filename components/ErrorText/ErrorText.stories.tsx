@@ -1,4 +1,3 @@
-import React from 'react';
 import { ErrorText } from './ErrorText';
 
 const meta = {
@@ -11,5 +10,6 @@ export const Default = {
   args: {
     children: 'Incorrect username or password!',
     id: 'loginFormError',
+    onIconClick: undefined,
   },
 };
