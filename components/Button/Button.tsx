@@ -1,9 +1,9 @@
-import React, {ButtonHTMLAttributes, forwardRef} from 'react';
+import React, {ButtonHTMLAttributes, forwardRef, Ref} from 'react';
 import styles from "./Button.module.scss";
 import clsx from "clsx";
-import {Spinner} from "../Spinner/Spinner";
+import {Spinner} from "@/components/Spinner/Spinner";
 import {useAutoFocus} from "@/utils/hooks/useAutoFocus";
-import {FontSizeProp, Text} from "@/components/Text/Text";
+import {FontSizeProp, FontSize, Text} from "@/components/Text/Text";
 import { WithIconProp} from "@/components/LeadingIcon/LeadingIcon";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>, WithIconProp, FontSizeProp {
@@ -35,7 +35,7 @@ export const Button = forwardRef(({
                            className,
                            variant = 'primary',
                            ...props
-                       }: ButtonProps, ref) => {
+                       }: ButtonProps, ref : Ref<HTMLButtonElement>) => {
 
     const autoFocusRef = useAutoFocus<HTMLButtonElement>(autoFocus, { customRef: ref });
     const disabled = props.disabled || isLoading;
@@ -61,7 +61,7 @@ export const Button = forwardRef(({
                         icon={icon}
                         iconPosition={iconPosition}
                         iconProps={iconProps}
-                        fontSize={fontSize || fontSizes[size]}
+                        fontSize={fontSize || fontSizes[size] as FontSize}
                         Tag='div'
                     >
                         {children}

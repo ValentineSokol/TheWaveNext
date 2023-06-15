@@ -1,12 +1,13 @@
-import React, {JSX, HTMLProps, ReactNode, ReactElement} from "react";
+import React, {JSX, HTMLProps, ReactNode } from "react";
 import clsx from "clsx";
 import { LeadingIcon, WithIconProp } from "@/components/LeadingIcon/LeadingIcon";
 
+export type FontSize = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 export interface FontSizeProp {
-    fontSize?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8,
+    fontSize?: FontSize,
 }
 export interface TextProps extends HTMLProps<any>, FontSizeProp, WithIconProp {
-    children?: ReactElement,
+    children?: ReactNode,
     className?: string,
     childClassName?: string,
     Tag?: keyof JSX.IntrinsicElements
