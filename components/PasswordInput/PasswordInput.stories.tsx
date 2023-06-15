@@ -8,5 +8,5 @@ const meta = {
 export default meta;
 
 export const Default = {
-  args: InputStories.Default.args,
+  args: { formAPI: { register: () => ({}) }, ...InputStories.Default.args },
 };
