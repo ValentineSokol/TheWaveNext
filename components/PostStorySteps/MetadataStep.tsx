@@ -1,9 +1,11 @@
 import React from 'react';
 
-export const MetadataStep = () => (
+export function MetadataStep() {
+  return (
     <div>
-        language
-        rating
-        other stuff like that
+      language
+      rating
+      other stuff like that
     </div>
-)
+  );
+}

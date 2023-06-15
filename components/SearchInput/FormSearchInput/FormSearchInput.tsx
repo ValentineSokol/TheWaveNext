@@ -3,8 +3,8 @@ import {SearchInput, SearchInputProps} from "@/components/SearchInput/SearchInpu
 import {Controller, ControllerProps} from "react-hook-form";
 
 interface FormSearchInputProps extends SearchInputProps, ControllerProps {
-    onResultItemSelect: () => void,
-    onResultItemRemove: () => void,
+    onResultItemSelect?: () => void,
+    onResultItemRemove?: () => void,
 }
 export const FormSearchInput = ({ control,  error, onResultItemSelect, onResultItemRemove, name, ...props }: FormSearchInputProps) => {
 
