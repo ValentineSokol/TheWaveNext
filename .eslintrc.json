@@ -3,9 +3,17 @@
     "next/core-web-vitals",
     "plugin:storybook/recommended",
     "plugin:react/recommended",
-    "airbnb"
+    "airbnb",
+    "airbnb-typescript"
   ],
+  "parserOptions": {
+    "project": ["./tsconfig.json"]
+  },
   "rules": {
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off",
+    "react/prop-types": "off",
+    "import/prefer-default-export": "off",
+    "react/button-has-type": "off"
   }
 }
