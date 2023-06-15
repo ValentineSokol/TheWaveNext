@@ -24,6 +24,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
+  "types": [
+    "jest"
+  ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
