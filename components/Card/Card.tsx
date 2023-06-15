@@ -1,14 +1,14 @@
-import React, {HTMLAttributes} from "react";
+import React, { HTMLAttributes } from 'react';
+import clsx from 'clsx';
 import styles from './Card.module.scss';
-import clsx from "clsx";
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
-    className?: string
+  className?: string
 }
-export const Card = ({ children, className, ...props } : CardProps) => {
-    return (
-        <div className={clsx(className, styles.card)} {...props}>
-            {children}
-        </div>
-    )
+export function Card({ children, className, ...props } : CardProps) {
+  return (
+    <div className={clsx(className, styles.card)} {...props}>
+      {children}
+    </div>
+  );
 }
