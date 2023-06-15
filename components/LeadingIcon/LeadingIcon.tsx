@@ -32,6 +32,6 @@ export function LeadingIcon({
   const content = [renderedIcon, children];
 
   return (
-    <div>{iconPosition === 'leading' ? content : [...content].reverse()}</div>
+    <div className={onIconClick && styles.clickable}>{iconPosition === 'leading' ? content : [...content].reverse()}</div>
   );
 }
