@@ -1,13 +1,16 @@
-module.exports = {
+const { pathsToModuleNameMapper } = require('ts-jest');
+const { compilerOptions } = require('./tsconfig');
+const config = {
     setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
     testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
     moduleNameMapper: {
-        '\\.(scss|sass|css)$': 'identity-obj-proxy',
+        ...pathsToModuleNameMapper(compilerOptions.paths , { prefix: compilerOptions.baseUrl } ),
+        '\\.(css|less|scss|sass)': 'identity-obj-proxy',
     },
     preset: 'ts-jest',
     testEnvironment: 'node',
     transform: {
-        '^.+\\.ts?$': 'ts-jest',
+        '^.+\\.(ts|tsx)?$': ['ts-jest',  { tsConfig: "tsconfig-jest.json" }],
     },
     transformIgnorePatterns: ['<rootDir>/node_modules/'],
     verbose: true,
@@ -21,3 +24,5 @@ module.exports = {
         },
     },
 };
+
+module.exports = config;
